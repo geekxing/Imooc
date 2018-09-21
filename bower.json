@@ -1,0 +1,24 @@
+{
+  "name": "Imooc",
+  "homepage": "https://github.com/geekxing/Imooc",
+  "authors": [
+    "larrylai"
+  ],
+  "description": "Imooc movie",
+  "main": "",
+  "keywords": [
+    "imooc"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  }
+}
