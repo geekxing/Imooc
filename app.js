@@ -7,12 +7,17 @@ var Movie = require('./models/movie');
 var port = process.env.PORT || 3000;
 var app = express();
 
-mongoose.connect('mongodb://localhost/imooc');
+mongoose.connect('mongodb://127.0.0.1:27017/imooc', {useNewUrlParser: true}, function(err) {
+    if (err) {
+        console.log(err);
+    }
+});
+mongoose.set('debug', true);
 
 app.set('views', './views/pages');
 app.set('view engine', 'jade');
 app.use(bodyParser());
-app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.locals.moment = require('moment');
 app.listen(port);
 
@@ -92,7 +97,7 @@ app.post('/admin/movie/new', function (req, res) {
     var movieObj = req.body.movie
     var _movie
 
-    if (id !== undefined) {
+    if (id !== 'undefined') {
         Movie.findById(id, function (err, movie) {
             if (err) {
                 console.log(err)
